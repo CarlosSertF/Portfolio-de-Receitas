@@ -13,6 +13,10 @@ module.exports = (sequelize, Sequelize) => {
         nome: {
             type: Sequelize.STRING,
             allowNull: false,
+        },
+        admin: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
         },    
         senha: {
             type: Sequelize.STRING,

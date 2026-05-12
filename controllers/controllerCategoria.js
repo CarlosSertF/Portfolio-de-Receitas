@@ -25,12 +25,12 @@ module.exports = {
     async postUpdate(req, res){
         await db.Categoria.update(req.body,
             {where: {id:req.body.id}})
-            .then(res.render('home'))
+            .then(() => res.redirect('/home'))
             .catch(function (err) {console.log(err)});
     },
     async getDelete(req, res){
         await db.Categoria.destroy({where:{id: req.params.id}})
-        .then(res.render('home'))
+        .then(() => res.redirect('/home'))
         .catch(err => {console.log(err);});
     }
 }

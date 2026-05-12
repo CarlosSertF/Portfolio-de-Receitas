@@ -6,12 +6,14 @@
     <body>
         <center>
             <h1>Sistema de Controle de Receitas</h1>
-            <a href = "/usuarioCreate">
-                <button>Cadastrar Usuário</button>
-            </a>
-            <a href = "/usuarioList">
-                <button>Listar Usuários</button>
-            </a>
+            {{#if isAdmin}}
+                <a href = "/usuarioCreate">
+                    <button>Cadastrar Usuário</button>
+                </a>
+                <a href = "/usuarioList">
+                    <button>Listar Usuários</button>
+                </a>
+            {{/if}}
             <a href="/categoriaCreate">
                 <button>Cadastrar Categoria</button>
             </a>
@@ -29,6 +31,9 @@
             </a>
             <a href="/comentarioList">
                 <button>Listar Comentários</button>
+            </a>
+            <a href ="/logout">
+                <button>Logout</button>
             </a>
             <br> <br>
             {{{body}}}                                    

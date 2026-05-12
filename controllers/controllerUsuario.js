@@ -5,17 +5,29 @@ const path = require('path');
 
 module.exports = {
     async getLogin(req, res){
-        res.render('usuario/usuarioCreate', {layout: 'noMenu.handlebars'});
+        res.render('login', {layout: 'noMenu.handlebars'});
+    },
+    async getLogout(req, res){
+        req.session.destroy();
+        res.redirect('/');
     },
     async postLogin(req, res){
-        var user = {
-            login: req.body.login
-        }
-        db.Usuario.findAll({where :{login: req.body.login,nome:req.body.nome, senha: req.body.senha}
-        }).then(usuarios => {
-                res.render('home');
+        db.Usuario.findOne({
+            where: {
+                login: req.body.login,
+                senha: req.body.senha
+            }
+        }).then(usuario => {
+            if (usuario){
+                req.session.login = usuario.login;
+                req.session.admin = usuario.admin;
+                res.redirect('/home');
+            } else {
+                res.redirect('/');
+            }
         }).catch((err) => {
             console.log(err);
+            res.redirect('/');
         });
     },
     async getCreate(req,res){
@@ -25,9 +37,10 @@ module.exports = {
         db.Usuario.create({
             login:req.body.login,
             nome:req.body.nome,
+            admin: false,
             senha:req.body.senha
         }).then(() => {
-            res.render('home');
+            res.redirect('/');
         }).catch((err)=>{
             console.log(err);
         });
@@ -49,12 +62,12 @@ module.exports = {
     },
     async postUpdate(req, res){
         await db.Usuario.update(req.body, {where: {id:req.body.id}})
-        .then(res.render('home'))
+        .then(() => res.redirect('/home'))
         .catch(function (err){console.log(err)})
     },
     async getDelete(req, res){
         await db.Usuario.destroy({where:{id:req.params.id}})
-        .then(res.render('home'))
+        .then(() => res.redirect('/home'))
         .catch(err => {console.log(err)});
     }
 }

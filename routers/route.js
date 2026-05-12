@@ -5,6 +5,7 @@ const controllerComentario = require('../controllers/controllerComentario');
 const controllerCategoria = require('../controllers/controllerCategoria');
 const controllerReceita = require('../controllers/controllerReceita');
 const route = express.Router();
+const middleware = require('../middleware/middleware');
 
 async function iniciar(){
 
@@ -13,7 +14,8 @@ async function iniciar(){
         console.log('{force:true');
         await db.Usuario.create({
             login:'admin', 
-            nome:'admin', 
+            nome:'admin',
+            admin: true, 
             senha:'admin'
         });
 }
@@ -25,9 +27,9 @@ module.exports = route;
 //Controller Usuario
 route.get("/", controllerUsuario.getLogin);
 route.post("/login", controllerUsuario.postLogin);
-route.get("/usuarioCreate", controllerUsuario.getCreate);
+route.get("/usuarioCreate", middleware.onlyAdmin, controllerUsuario.getCreate);
 route.post("/usuarioCreate", controllerUsuario.postCreate);
-route.get("/usuarioList", controllerUsuario.getList);
+route.get("/usuarioList", middleware.onlyAdmin, controllerUsuario.getList);
 route.get("/usuarioUpdate/:id", controllerUsuario.getUpdate);
 route.post("/usuarioUpdate", controllerUsuario.postUpdate);
 route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
@@ -52,3 +54,15 @@ route.get("/receitaDelete/:id", controllerReceita.getDelete);
 route.get("/comentarioCreate", controllerComentario.getCreate);
 route.post("/comentarioCreate", controllerComentario.postCreate);
 route.get("/comentarioList", controllerComentario.getList);
+
+//Logout
+route.get("/logout", controllerUsuario.getLogout);
+
+//Home
+route.get("/home", function (req, res){
+    if(req.session.login){
+        res.render('home', { login: req.session.login });
+    } else {
+        res.redirect('/');
+    }
+});
