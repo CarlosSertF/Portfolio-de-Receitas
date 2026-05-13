@@ -18,6 +18,12 @@ db.Receita = require('../models/relational/receita.js')
     (sequelize, Sequelize);
 db.Categoria = require('../models/relational/categoria.js')
     (sequelize, Sequelize);
-db.Categoria.hasMany(db.Receita,
-    {foreignKey: 'categoriaId', onDelete: 'NO ACTION'});        
+db.Receita.belongsToMany(db.Categoria, {
+    through: 'receita_categoria',
+    foreignKey: 'receitaId'
+});
+db.Categoria.belongsToMany(db.Receita, {
+    through: 'receita_categoria',
+    foreignKey: 'categoriaId'
+});      
 module.exports = db;

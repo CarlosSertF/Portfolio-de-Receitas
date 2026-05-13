@@ -6,11 +6,11 @@
     <br> <br>
     Preparo: <input type="text" name="preparo" value={{receita.preparo}}>
     <br> <br>
-    Categoria:
-    <select name="categoriaNome">
+    Categorias:
+    <select name="categorias" multiple>
         {{#each categorias}}
         <tr>
-            <option value={{nome}}>{{nome}}</option>
+            <option value={{id}}>{{nome}}</option>
         </tr>
         {{/each}}
     </select>

@@ -6,11 +6,11 @@
     Preparo: <input type="text" name="preparo">
     <br><br>
     Categoria:
-    <select name="categoriaNome">
+    <select name="categorias" multiple>
         {{#each categorias}}
-        <tr>
-            <option value={{nome}}>{{nome}}</option>
-        </tr>
+        <option value="{{id}}">
+            {{nome}}
+        </option>
         {{/each}}
     </select>
     <br> <br>

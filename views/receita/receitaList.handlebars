@@ -12,9 +12,13 @@
         <td>{{nome}}</td>
         <td>{{preparo}}</td>
         <td>{{ingredientes}}</td>
-        <td>{{categoriaNome}}</td>
-        <td><a href="receitaUpdate/{{nome}}">Editar</a></td>
-        <td><a href="receitaDelete/{{nome}}">Deletar</a></td>
+        <td>
+            {{#each categoria}}
+                {{nome}}<br>
+            {{/each}}
+        </td>
+        <td><a href="receitaUpdate/{{id}}">Editar</a></td>
+        <td><a href="receitaDelete/{{id}}">Deletar</a></td>
     </tr>
     {{/each}}
 </table>

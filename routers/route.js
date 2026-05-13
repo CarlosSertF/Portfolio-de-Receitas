@@ -9,9 +9,9 @@ const middleware = require('../middleware/middleware');
 
 async function iniciar(){
 
-    await db.sequelize.sync({alter: true});
+    await db.sequelize.sync();
     
-        console.log('{force:true');
+        console.log();
         await db.Usuario.create({
             login:'admin', 
             nome:'admin',

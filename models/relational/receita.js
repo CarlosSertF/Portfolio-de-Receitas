@@ -17,10 +17,6 @@ module.exports = (sequelize, Sequelize) => {
         preparo: {
             type: Sequelize.STRING,
             allowNull: false,
-        },
-        categoriaNome: {
-            type: Sequelize.STRING,
-            allowNull: false,
         }
     });
     return Receita;
