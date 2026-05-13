@@ -7,8 +7,12 @@ const express = require('express');
 const middlewares = require('./middleware/middleware'); 
 const app = express();
 app.use(cookieParser());
-app.use(session({secret:process.env.SECRET_KEY,
-    cookie:{maxAge:30*60*1000}}));    
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 30 * 60 * 1000 }
+}));
 
 const mongoose = require('mongoose');
 const db_mongoose = require('./config/db_mongoose');
@@ -24,8 +28,10 @@ app.engine('handlebars', handlebars.engine({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(middlewares.logRegister, middlewares.sessionControl)
+app.use(express.urlencoded({ extended: true }));
+console.log('middlewares:', typeof middlewares.logRegister, typeof middlewares.sessionControl);
+app.use(middlewares.logRegister);
+app.use(middlewares.sessionControl);
 app.use(routes);
 
 app.listen(8081, function(){

@@ -1,0 +1,9 @@
+<form action="/usuarioHabilidadeUpdate" method="post">
+    <input type="hidden" name="habilidadeId" value="{{habilidade.id}}">
+    Habilidade: {{habilidade.nome}}
+    <br><br>
+    Nível (0-10):
+    <input type="number" name="nivel" min="0" max="10" value="{{nivel}}" required>
+    <br><br>
+    <input type="submit" value="Salvar alterações">
+</form>

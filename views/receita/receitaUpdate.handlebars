@@ -1,26 +1,22 @@
 <form action="/receitaUpdate" method="post">
     <input type="hidden" name="id" value={{receita.id}}>
-    Nome: <input type="text" name="nome" value={{receita.nome}}>
+    Nome: <input type="text" name="nome" value="{{receita.nome}}">
     <br><br>
-    Igrendientes: <input type="text" name="ingredientes" value={{receita.ingredientes}}>
-    <br> <br>
-    Preparo: <input type="text" name="preparo" value={{receita.preparo}}>
-    <br> <br>
+    Descrição: <textarea name="descricao">{{receita.descricao}}</textarea>
+    <br><br>
+    Link Externo: <input type="url" name="link_externo" value="{{receita.link_externo}}">
+    <br><br>
     Categorias:
     <select name="categorias" multiple>
         {{#each categorias}}
-        <tr>
-            <option value={{id}}>{{nome}}</option>
-        </tr>
+        <option value="{{id}}">{{nome}}</option>
         {{/each}}
     </select>
     <br><br>
     Responsáveis:
     <select name="usuarios" multiple>
-        {{#each usuario}}
-        <tr>
-            <option value={{id}}>{{nome}}</option>
-        </tr>
+        {{#each usuarios}}
+        <option value="{{id}}">{{nome}}</option>
         {{/each}}
     </select>
      <br> <br>

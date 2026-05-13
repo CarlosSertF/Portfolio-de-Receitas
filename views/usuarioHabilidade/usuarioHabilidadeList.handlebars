@@ -1,0 +1,20 @@
+<table border="1px">
+    <tr>
+        <td>Habilidade</td>
+        <td>Nível</td>
+        <td>Editar</td>
+        <td>Remover</td>
+    </tr>
+    {{#if usuario.habilidades}}
+        {{#each usuario.habilidades}}
+        <tr>
+            <td>{{nome}}</td>
+            <td>{{usuario_habilidade.nivel}}</td>
+            <td><a href="/usuarioHabilidadeUpdate/{{id}}">Editar</a></td>
+            <td><a href="/usuarioHabilidadeDelete/{{id}}">Remover</a></td>
+        </tr>
+        {{/each}}
+    {{else}}
+        <tr><td colspan="4">Nenhuma habilidade cadastrada.</td></tr>
+    {{/if}}
+</table>

@@ -1,0 +1,10 @@
+<h2>Categorias Disponíveis</h2>
+<ul>
+    {{#each categorias}}
+    <li><a href="/public/receitas/categoria/{{id}}">{{nome}}</a></li>
+    {{/each}}
+</ul>
+<br>
+<a href="/public/receitas"><button>Ver Todas as Receitas</button></a> | 
+<a href="/public/relatorio-habilidades"><button>Relatório de Habilidades</button></a> | 
+<a href="/login"><button>Login</button></a>

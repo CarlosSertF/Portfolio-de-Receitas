@@ -18,6 +18,10 @@ db.Receita = require('../models/relational/receita.js')
     (sequelize, Sequelize);
 db.Categoria = require('../models/relational/categoria.js')
     (sequelize, Sequelize);
+db.Habilidade = require('../models/relational/habilidade.js')
+    (sequelize, Sequelize);
+db.UsuarioHabilidade = require('../models/relational/usuarioHabilidade.js')
+    (sequelize, Sequelize);
 db.Receita.belongsToMany(db.Categoria, {
     through: 'receita_categoria',
     foreignKey: 'receitaId'
@@ -33,5 +37,13 @@ db.Usuario.belongsToMany(db.Receita, {
 db.Receita.belongsToMany(db.Usuario, {
     through: 'usuario_receita',
     foreignKey: 'receitaId'
+});
+db.Usuario.belongsToMany(db.Habilidade, {
+    through: db.UsuarioHabilidade,
+    foreignKey: 'usuarioId'
+});
+db.Habilidade.belongsToMany(db.Usuario, {
+    through: db.UsuarioHabilidade,
+    foreignKey: 'habilidadeId'
 });
 module.exports = db;

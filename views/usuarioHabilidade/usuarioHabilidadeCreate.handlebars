@@ -1,0 +1,13 @@
+<form action="/usuarioHabilidadeCreate" method="post">
+    Habilidade:
+    <select name="habilidadeId" required>
+        {{#each habilidades}}
+        <option value="{{id}}">{{nome}}</option>
+        {{/each}}
+    </select>
+    <br><br>
+    Nível (0-10):
+    <input type="number" name="nivel" min="0" max="10" value="0" required>
+    <br><br>
+    <input type="submit" value="Salvar habilidade">
+</form>

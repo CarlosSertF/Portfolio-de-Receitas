@@ -1,0 +1,23 @@
+<h2>Relatório de Habilidades Culinárias</h2>
+<p>Proporção de alunos que dominam cada habilidade:</p>
+{{#each report}}
+<h3>{{nome}}</h3>
+<p>Total de alunos: {{totalAlunos}}</p>
+<table border="1">
+    <tr>
+        <th>Nível</th>
+        <th>Quantidade de Alunos</th>
+    </tr>
+    {{#each niveis}}
+    <tr>
+        <td>{{@key}}</td>
+        <td>{{this}}</td>
+    </tr>
+    {{/each}}
+</table>
+<br>
+{{/each}}
+<br>
+<a href="/public/receitas"><button>Voltar às Receitas</button></a> | 
+<a href="/public/categorias"><button>Ver Categorias</button></a> | 
+<a href="/login"><button>Login</button></a>

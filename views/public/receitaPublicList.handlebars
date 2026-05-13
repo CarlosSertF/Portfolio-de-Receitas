@@ -1,3 +1,4 @@
+<h2>Receitas Disponíveis</h2>
 <table border="1px">
     <tr>
         <td>Nome</td>
@@ -5,8 +6,6 @@
         <td>Link Externo</td>
         <td>Categoria</td>
         <td>Responsáveis</td>
-        <td>Editar</td>
-        <td>Deletar</td>
     </tr>
     {{#each receitas}}
     <tr>
@@ -23,8 +22,10 @@
                 {{nome}}<br>
             {{/each}}
         </td>
-        <td><a href="receitaUpdate/{{id}}">Editar</a></td>
-        <td><a href="receitaDelete/{{id}}">Deletar</a></td>
     </tr>
     {{/each}}
 </table>
+<br>
+<a href="/public/categorias"><button>Ver Categorias</button></a> | 
+<a href="/public/relatorio-habilidades"><button>Relatório de Habilidades</button></a> | 
+<a href="/login"><button>Login</button></a>

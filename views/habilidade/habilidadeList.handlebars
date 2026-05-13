@@ -1,0 +1,14 @@
+<table border="1px">
+    <tr>
+        <td>Nome</td>
+        <td>Editar</td>
+        <td>Excluir</td>
+    </tr>
+    {{#each habilidades}}
+    <tr>
+        <td>{{nome}}</td>
+        <td><a href="/habilidadeUpdate/{{id}}">Editar</a></td>
+        <td><a href="/habilidadeDelete/{{id}}">Excluir</a></td>
+    </tr>
+    {{/each}}
+</table>

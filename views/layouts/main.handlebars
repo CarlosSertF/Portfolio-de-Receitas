@@ -26,6 +26,23 @@
             <a href="/receitaList">
                 <button>Listar Receitas</button>
             </a>
+            {{#if isAdmin}}
+            <a href="/habilidadeCreate">
+                <button>Cadastrar Habilidade</button>
+            </a>
+            <a href="/habilidadeList">
+                <button>Listar Habilidades</button>
+            </a>
+            {{/if}}
+            {{#unless isAdmin}}
+            <a href="/usuarioHabilidadeList">
+                <button>Minhas Habilidades</button>
+            </a>
+            <a href="/usuarioHabilidadeCreate">
+                <button>Adicionar Habilidade</button>
+            </a>
+            {{/unless}}
+            <br> <br>
             <a href="/comentarioCreate">
                 <button>Cadastrar Comentário</button>
             </a>

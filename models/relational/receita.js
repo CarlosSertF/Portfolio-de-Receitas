@@ -10,13 +10,13 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false,
         },
-        ingredientes: {
+        descricao: {
             type: Sequelize.STRING,
             allowNull: false,
         },
-        preparo: {
+        link_externo: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: true,
         }
     });
     return Receita;

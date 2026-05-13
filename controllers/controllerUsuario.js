@@ -21,6 +21,7 @@ module.exports = {
             if (usuario){
                 req.session.login = usuario.login;
                 req.session.admin = usuario.admin;
+                req.session.userId = usuario.id;
                 res.redirect('/home');
             } else {
                 res.redirect('/');
