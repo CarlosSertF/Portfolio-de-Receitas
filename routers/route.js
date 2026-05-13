@@ -11,13 +11,18 @@ async function iniciar(){
 
     await db.sequelize.sync();
     
-        console.log();
+    const adminExiste = await db.Usuario.findOne({where: {login: 'admin'}});
+    if(!adminExiste){
         await db.Usuario.create({
             login:'admin', 
             nome:'admin',
             admin: true, 
             senha:'admin'
         });
+        console.log('Admin criado com sucesso!');
+    }else{
+        console.log('Admin já existe!');
+    }   
 }
 
 iniciar();

@@ -25,5 +25,13 @@ db.Receita.belongsToMany(db.Categoria, {
 db.Categoria.belongsToMany(db.Receita, {
     through: 'receita_categoria',
     foreignKey: 'categoriaId'
-});      
+});
+db.Usuario.belongsToMany(db.Receita, {
+    through: 'usuario_receita',
+    foreignKey: 'usuarioId'
+});
+db.Receita.belongsToMany(db.Usuario, {
+    through: 'usuario_receita',
+    foreignKey: 'receitaId'
+});
 module.exports = db;

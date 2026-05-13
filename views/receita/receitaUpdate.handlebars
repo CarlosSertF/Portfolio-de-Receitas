@@ -15,5 +15,14 @@
         {{/each}}
     </select>
     <br><br>
+    Responsáveis:
+    <select name="usuarios" multiple>
+        {{#each usuario}}
+        <tr>
+            <option value={{id}}>{{nome}}</option>
+        </tr>
+        {{/each}}
+    </select>
+     <br> <br>
     <input type="submit" value="Editar">
 </form>
