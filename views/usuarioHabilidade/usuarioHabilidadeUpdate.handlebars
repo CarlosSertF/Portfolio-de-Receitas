@@ -1,0 +1,16 @@
+<div class="card stack">
+    <h1 class="page-title">Editar habilidade</h1>
+    <p class="page-lead">Ajuste o nível para <strong>{{habilidade.nome}}</strong>.</p>
+
+    <form action="/usuarioHabilidadeUpdate" method="post" class="stack">
+        <input type="hidden" name="habilidadeId" value="{{habilidade.id}}">
+        <div class="form-row">
+            <label for="nivel">Nível (0–10)</label>
+            <input type="number" name="nivel" id="nivel" min="0" max="10" value="{{nivel}}" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a class="btn btn-ghost" href="/usuarioHabilidadeList">Voltar</a>
+        </div>
+    </form>
+</div>

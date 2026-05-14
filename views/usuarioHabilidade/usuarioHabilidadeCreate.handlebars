@@ -1,0 +1,23 @@
+<div class="card stack">
+    <h1 class="page-title">Adicionar habilidade</h1>
+    <p class="page-lead">Escolha uma habilidade e informe seu nível de domínio (0 a 10).</p>
+
+    <form action="/usuarioHabilidadeCreate" method="post" class="stack">
+        <div class="form-row">
+            <label for="habilidadeId">Habilidade</label>
+            <select name="habilidadeId" id="habilidadeId" required>
+                {{#each habilidades}}
+                <option value="{{id}}">{{nome}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="nivel">Nível (0–10)</label>
+            <input type="number" name="nivel" id="nivel" min="0" max="10" value="0" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a class="btn btn-ghost" href="/usuarioHabilidadeList">Cancelar</a>
+        </div>
+    </form>
+</div>

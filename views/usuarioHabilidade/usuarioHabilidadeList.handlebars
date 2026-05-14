@@ -1,0 +1,41 @@
+<div class="card stack">
+    <h1 class="page-title">Minhas habilidades</h1>
+    <p class="page-lead">Níveis de 0 a 10 para cada habilidade associada ao seu usuário.</p>
+
+    <div class="data-table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Habilidade</th>
+                    <th>Nível</th>
+                    <th style="min-width:200px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if usuario}}
+                    {{#each usuario.habilidades}}
+                    <tr>
+                        <td><strong>{{nome}}</strong></td>
+                        <td><span class="pill">{{usuario_habilidade.nivel}}</span></td>
+                        <td>
+                            <div class="table-actions">
+                                <a class="btn btn-secondary" href="/usuarioHabilidadeUpdate/{{id}}">Editar</a>
+                                <a class="btn btn-danger" href="/usuarioHabilidadeDelete/{{id}}">Remover</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{else}}
+                    <tr><td colspan="3" class="empty-state">Nenhuma habilidade cadastrada.</td></tr>
+                    {{/each}}
+                {{else}}
+                    <tr><td colspan="3" class="empty-state">Usuário não encontrado.</td></tr>
+                {{/if}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-actions">
+        <a class="btn btn-primary" href="/usuarioHabilidadeCreate">Adicionar habilidade</a>
+        <a class="btn btn-ghost" href="/home">Início</a>
+    </div>
+</div>

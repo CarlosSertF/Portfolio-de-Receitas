@@ -1,0 +1,51 @@
+<div class="card stack">
+    <div>
+        <h1 class="page-title">Receitas disponíveis</h1>
+        <p class="page-lead">Lista pública do portfólio: descrição, link externo, categorias e responsáveis.</p>
+    </div>
+
+    <div class="data-table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Link</th>
+                    <th>Categorias</th>
+                    <th>Responsáveis</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each receitas}}
+                <tr>
+                    <td><strong>{{nome}}</strong></td>
+                    <td>{{descricao}}</td>
+                    <td>{{#if link_externo}}<a href="{{link_externo}}" target="_blank" rel="noopener noreferrer">Abrir</a>{{else}}<span class="muted">—</span>{{/if}}</td>
+                    <td>
+                        {{#each categoria}}
+                            <span class="pill" style="margin:0.15rem 0.35rem 0 0;display:inline-flex;">{{nome}}</span>
+                        {{else}}
+                            <span class="muted">—</span>
+                        {{/each}}
+                    </td>
+                    <td>
+                        {{#each usuarios}}
+                            {{nome}}<br>
+                        {{else}}
+                            <span class="muted">—</span>
+                        {{/each}}
+                    </td>
+                </tr>
+                {{else}}
+                <tr><td colspan="5" class="empty-state">Nenhuma receita cadastrada.</td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="public-footer">
+        <a class="btn btn-secondary" href="/public/categorias">Categorias</a>
+        <a class="btn btn-secondary" href="/public/relatorio-habilidades">Relatório</a>
+        <a class="btn btn-primary" href="/">Login</a>
+    </div>
+</div>

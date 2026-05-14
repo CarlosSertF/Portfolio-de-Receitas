@@ -1,0 +1,49 @@
+<div class="card stack">
+    <h1 class="page-title">Receitas</h1>
+    <p class="page-lead">Receitas do sistema com categorias, responsáveis e links externos.</p>
+
+    <div class="data-table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Link</th>
+                    <th>Categorias</th>
+                    <th>Responsáveis</th>
+                    <th style="min-width:200px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each receitas}}
+                <tr>
+                    <td><strong>{{nome}}</strong></td>
+                    <td>{{descricao}}</td>
+                    <td>{{#if link_externo}}<a href="{{link_externo}}" target="_blank" rel="noopener noreferrer">Abrir</a>{{else}}<span class="muted">—</span>{{/if}}</td>
+                    <td>
+                        {{#each categoria}}
+                            <span class="pill" style="margin:0.15rem 0.35rem 0 0;display:inline-flex;">{{nome}}</span>
+                        {{else}}<span class="muted">—</span>{{/each}}
+                    </td>
+                    <td>
+                        {{#each usuarios}}{{nome}}<br>{{else}}<span class="muted">—</span>{{/each}}
+                    </td>
+                    <td>
+                        <div class="table-actions">
+                            <a class="btn btn-secondary" href="/receitaUpdate/{{id}}">Editar</a>
+                            <a class="btn btn-danger" href="/receitaDelete/{{id}}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                {{else}}
+                <tr><td colspan="6" class="empty-state">Nenhuma receita cadastrada.</td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-actions">
+        <a class="btn btn-primary" href="/receitaCreate">Nova receita</a>
+        <a class="btn btn-ghost" href="/home">Início</a>
+    </div>
+</div>

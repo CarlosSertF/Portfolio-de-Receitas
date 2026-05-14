@@ -1,0 +1,16 @@
+<div class="card stack">
+    <h1 class="page-title">Editar habilidade</h1>
+    <p class="page-lead">Renomeie a habilidade selecionada.</p>
+
+    <form action="/habilidadeUpdate" method="post" class="stack">
+        <input type="hidden" name="id" value="{{habilidade.id}}">
+        <div class="form-row">
+            <label for="nome">Nome da habilidade</label>
+            <input type="text" name="nome" id="nome" value="{{habilidade.nome}}" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a class="btn btn-ghost" href="/habilidadeList">Voltar</a>
+        </div>
+    </form>
+</div>

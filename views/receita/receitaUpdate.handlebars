@@ -1,0 +1,40 @@
+<div class="card stack">
+    <h1 class="page-title">Editar receita</h1>
+    <p class="page-lead">Atualize os dados da receita. Ajuste categorias e responsáveis conforme necessário.</p>
+
+    <form action="/receitaUpdate" method="post" class="stack">
+        <input type="hidden" name="id" value="{{receita.id}}">
+        <div class="form-row">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" value="{{receita.nome}}" required>
+        </div>
+        <div class="form-row">
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" id="descricao" required>{{receita.descricao}}</textarea>
+        </div>
+        <div class="form-row">
+            <label for="link_externo">Link externo</label>
+            <input type="url" name="link_externo" id="link_externo" value="{{receita.link_externo}}">
+        </div>
+        <div class="form-row">
+            <label for="categorias">Categorias</label>
+            <select name="categorias" id="categorias" multiple>
+                {{#each categorias}}
+                <option value="{{id}}">{{nome}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="usuarios">Responsáveis</label>
+            <select name="usuarios" id="usuarios" multiple>
+                {{#each usuarios}}
+                <option value="{{id}}">{{nome}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a class="btn btn-ghost" href="/receitaList">Voltar</a>
+        </div>
+    </form>
+</div>

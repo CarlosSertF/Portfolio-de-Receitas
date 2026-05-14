@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio de Receitas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/">
+                <span class="brand__mark" aria-hidden="true">🍳</span>
+                <span>Portfolio de Receitas</span>
+            </a>
+            <div class="header-actions">
+                <a class="btn btn-secondary" href="/public/receitas">Receitas</a>
+                <a class="btn btn-secondary" href="/public/categorias">Categorias</a>
+                <a class="btn btn-ghost" href="/public/relatorio-habilidades">Relatório</a>
+                <a class="btn btn-primary" href="/">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="shell" style="grid-template-columns: 1fr; max-width: 960px;">
+        <main class="main-area">
+            {{{body}}}
+        </main>
+    </div>
+</body>
+</html>

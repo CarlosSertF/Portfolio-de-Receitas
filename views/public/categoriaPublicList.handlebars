@@ -1,0 +1,20 @@
+<div class="card stack">
+    <div>
+        <h1 class="page-title">Categorias</h1>
+        <p class="page-lead">Escolha uma categoria para filtrar as receitas públicas.</p>
+    </div>
+
+    <ul class="category-chips">
+        {{#each categorias}}
+        <li><a href="/public/receitas/categoria/{{id}}">{{nome}}</a></li>
+        {{else}}
+        <li class="muted">Nenhuma categoria cadastrada.</li>
+        {{/each}}
+    </ul>
+
+    <div class="public-footer">
+        <a class="btn btn-secondary" href="/public/receitas">Todas as receitas</a>
+        <a class="btn btn-secondary" href="/public/relatorio-habilidades">Relatório</a>
+        <a class="btn btn-primary" href="/">Login</a>
+    </div>
+</div>

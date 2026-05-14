@@ -1,0 +1,15 @@
+<div class="card stack">
+    <h1 class="page-title">Nova categoria</h1>
+    <p class="page-lead">Defina um nome claro para agrupar receitas (ex.: sobremesas, massas).</p>
+
+    <form action="/categoriaCreate" method="post" class="stack">
+        <div class="form-row">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <a class="btn btn-ghost" href="/categoriaList">Cancelar</a>
+        </div>
+    </form>
+</div>

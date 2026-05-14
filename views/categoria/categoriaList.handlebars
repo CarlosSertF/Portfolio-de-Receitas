@@ -1,0 +1,35 @@
+<div class="card stack">
+    <h1 class="page-title">Categorias</h1>
+    <p class="page-lead">Gerencie as categorias usadas nas receitas.</p>
+
+    <div class="data-table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th style="width:200px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each categorias}}
+                <tr>
+                    <td><strong>{{nome}}</strong></td>
+                    <td>
+                        <div class="table-actions">
+                            <a class="btn btn-secondary" href="/categoriaUpdate/{{id}}">Editar</a>
+                            <a class="btn btn-danger" href="/categoriaDelete/{{id}}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                {{else}}
+                <tr><td colspan="2" class="empty-state">Nenhuma categoria cadastrada.</td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-actions">
+        <a class="btn btn-primary" href="/categoriaCreate">Nova categoria</a>
+        <a class="btn btn-ghost" href="/home">Início</a>
+    </div>
+</div>

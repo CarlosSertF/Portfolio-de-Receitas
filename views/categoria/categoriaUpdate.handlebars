@@ -1,0 +1,16 @@
+<div class="card stack">
+    <h1 class="page-title">Editar categoria</h1>
+    <p class="page-lead">Atualize o nome da categoria selecionada.</p>
+
+    <form action="/categoriaUpdate" method="post" class="stack">
+        <input type="hidden" name="id" value="{{categoria.id}}">
+        <div class="form-row">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" value="{{categoria.nome}}" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a class="btn btn-ghost" href="/categoriaList">Voltar</a>
+        </div>
+    </form>
+</div>

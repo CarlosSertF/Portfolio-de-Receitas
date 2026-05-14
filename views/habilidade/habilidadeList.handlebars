@@ -1,0 +1,35 @@
+<div class="card stack">
+    <h1 class="page-title">Habilidades</h1>
+    <p class="page-lead">Habilidades culinárias que podem ser associadas aos alunos.</p>
+
+    <div class="data-table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th style="min-width:200px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each habilidades}}
+                <tr>
+                    <td><strong>{{nome}}</strong></td>
+                    <td>
+                        <div class="table-actions">
+                            <a class="btn btn-secondary" href="/habilidadeUpdate/{{id}}">Editar</a>
+                            <a class="btn btn-danger" href="/habilidadeDelete/{{id}}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                {{else}}
+                <tr><td colspan="2" class="empty-state">Nenhuma habilidade cadastrada.</td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-actions">
+        <a class="btn btn-primary" href="/habilidadeCreate">Nova habilidade</a>
+        <a class="btn btn-ghost" href="/home">Início</a>
+    </div>
+</div>

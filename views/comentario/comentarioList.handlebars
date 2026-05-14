@@ -1,0 +1,21 @@
+<div class="card stack">
+    <h1 class="page-title">Comentários</h1>
+    <p class="page-lead">Feedbacks e anotações registrados no sistema.</p>
+
+    <div class="comment-grid">
+        {{#each comentarios}}
+        <article class="comment-card">
+            <h3>{{titulo}}</h3>
+            <p class="muted" style="margin:0 0 0.5rem;"><strong>Autor:</strong> {{autor}}</p>
+            <p style="margin:0;">{{texto}}</p>
+        </article>
+        {{else}}
+        <p class="muted empty-state" style="border:1px dashed var(--line);border-radius:var(--radius-sm);">Nenhum comentário ainda.</p>
+        {{/each}}
+    </div>
+
+    <div class="form-actions">
+        <a class="btn btn-primary" href="/comentarioCreate">Novo comentário</a>
+        <a class="btn btn-ghost" href="/home">Início</a>
+    </div>
+</div>

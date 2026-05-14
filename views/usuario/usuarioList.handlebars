@@ -1,0 +1,37 @@
+<div class="card stack">
+    <h1 class="page-title">Usuários</h1>
+    <p class="page-lead">Contas com acesso ao sistema (apenas administradores).</p>
+
+    <div class="data-table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Login</th>
+                    <th>Nome</th>
+                    <th style="min-width:200px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each usuarios}}
+                <tr>
+                    <td><code>{{login}}</code></td>
+                    <td>{{nome}}</td>
+                    <td>
+                        <div class="table-actions">
+                            <a class="btn btn-secondary" href="/usuarioUpdate/{{id}}">Editar</a>
+                            <a class="btn btn-danger" href="/usuarioDelete/{{id}}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                {{else}}
+                <tr><td colspan="3" class="empty-state">Nenhum usuário cadastrado.</td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-actions">
+        <a class="btn btn-primary" href="/usuarioCreate">Novo usuário</a>
+        <a class="btn btn-ghost" href="/home">Início</a>
+    </div>
+</div>

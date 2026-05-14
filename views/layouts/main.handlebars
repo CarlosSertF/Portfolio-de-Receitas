@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio de Receitas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/home">
+                <span class="brand__mark" aria-hidden="true">🍳</span>
+                <span>Portfolio de Receitas</span>
+            </a>
+            <div class="header-actions">
+                {{#if login}}
+                    <span class="pill" title="Usuário logado">{{login}}</span>
+                    <a class="btn btn-ghost" href="/logout">Sair</a>
+                {{else}}
+                    <a class="btn btn-secondary" href="/">Entrar</a>
+                {{/if}}
+            </div>
+        </div>
+    </header>
+
+    <div class="shell">
+        <aside class="sidebar" aria-label="Menu principal">
+            <nav class="nav-card">
+                <h2>Receitas</h2>
+                <ul class="nav-list">
+                    <li><a href="/receitaCreate" class="{{#if (eq currentPath '/receitaCreate')}}is-active{{/if}}">Nova receita</a></li>
+                    <li><a href="/receitaList" class="{{#if (eq currentPath '/receitaList')}}is-active{{/if}}">Listar receitas</a></li>
+                </ul>
+            </nav>
+            <nav class="nav-card">
+                <h2>Categorias</h2>
+                <ul class="nav-list">
+                    <li><a href="/categoriaCreate" class="{{#if (eq currentPath '/categoriaCreate')}}is-active{{/if}}">Nova categoria</a></li>
+                    <li><a href="/categoriaList" class="{{#if (eq currentPath '/categoriaList')}}is-active{{/if}}">Listar categorias</a></li>
+                </ul>
+            </nav>
+            <nav class="nav-card">
+                <h2>Comentários</h2>
+                <ul class="nav-list">
+                    <li><a href="/comentarioCreate" class="{{#if (eq currentPath '/comentarioCreate')}}is-active{{/if}}">Novo comentário</a></li>
+                    <li><a href="/comentarioList" class="{{#if (eq currentPath '/comentarioList')}}is-active{{/if}}">Listar comentários</a></li>
+                </ul>
+            </nav>
+            {{#if isAdmin}}
+            <nav class="nav-card">
+                <h2>Administração</h2>
+                <ul class="nav-list">
+                    <li><a href="/usuarioCreate" class="{{#if (eq currentPath '/usuarioCreate')}}is-active{{/if}}">Cadastrar usuário</a></li>
+                    <li><a href="/usuarioList" class="{{#if (eq currentPath '/usuarioList')}}is-active{{/if}}">Listar usuários</a></li>
+                    <li><a href="/habilidadeCreate" class="{{#if (eq currentPath '/habilidadeCreate')}}is-active{{/if}}">Nova habilidade</a></li>
+                    <li><a href="/habilidadeList" class="{{#if (eq currentPath '/habilidadeList')}}is-active{{/if}}">Listar habilidades</a></li>
+                </ul>
+            </nav>
+            {{else}}
+            <nav class="nav-card">
+                <h2>Habilidades</h2>
+                <ul class="nav-list">
+                    <li><a href="/usuarioHabilidadeList" class="{{#if (eq currentPath '/usuarioHabilidadeList')}}is-active{{/if}}">Minhas habilidades</a></li>
+                    <li><a href="/usuarioHabilidadeCreate" class="{{#if (eq currentPath '/usuarioHabilidadeCreate')}}is-active{{/if}}">Adicionar habilidade</a></li>
+                </ul>
+            </nav>
+            {{/if}}
+            <nav class="nav-card">
+                <h2>Público</h2>
+                <ul class="nav-list">
+                    <li><a href="/public/receitas">Receitas (visitante)</a></li>
+                    <li><a href="/public/categorias">Categorias (visitante)</a></li>
+                    <li><a href="/public/relatorio-habilidades">Relatório de habilidades</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-area">
+            {{{body}}}
+        </main>
+    </div>
+</body>
+</html>

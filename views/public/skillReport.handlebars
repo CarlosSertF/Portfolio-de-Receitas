@@ -1,0 +1,39 @@
+<div class="card stack">
+    <div>
+        <h1 class="page-title">Relatório de habilidades</h1>
+        <p class="page-lead">Distribuição de níveis (0 a 10) por habilidade culinária cadastrada no sistema.</p>
+    </div>
+
+    {{#each report}}
+    <section class="report-block card" style="box-shadow:none;">
+        <h3>{{nome}}</h3>
+        <p class="muted" style="margin-top:0;">Total de alunos: <strong>{{totalAlunos}}</strong></p>
+        <div class="data-table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nível</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each niveis}}
+                    <tr>
+                        <td>{{@key}}</td>
+                        <td>{{this}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    {{else}}
+    <p class="muted">Nenhum dado de habilidade para exibir.</p>
+    {{/each}}
+
+    <div class="public-footer">
+        <a class="btn btn-secondary" href="/public/receitas">Receitas</a>
+        <a class="btn btn-secondary" href="/public/categorias">Categorias</a>
+        <a class="btn btn-primary" href="/">Login</a>
+    </div>
+</div>

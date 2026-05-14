@@ -1,0 +1,40 @@
+<div class="card stack">
+    <h1 class="page-title">Nova receita</h1>
+    <p class="page-lead">Preencha os dados, selecione categorias e responsáveis (Ctrl+clique para múltiplos).</p>
+
+    <form action="/receitaCreate" method="post" class="stack">
+        <div class="form-row">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" required>
+        </div>
+        <div class="form-row">
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" id="descricao" required></textarea>
+        </div>
+        <div class="form-row">
+            <label for="link_externo">Link externo</label>
+            <input type="url" name="link_externo" id="link_externo" placeholder="https://">
+        </div>
+        <div class="form-row">
+            <label for="categorias">Categorias</label>
+            <select name="categorias" id="categorias" multiple>
+                {{#each categorias}}
+                <option value="{{id}}">{{nome}}</option>
+                {{/each}}
+            </select>
+            <span class="hint">Segure Ctrl (Windows) ou Cmd (Mac) para selecionar várias.</span>
+        </div>
+        <div class="form-row">
+            <label for="usuarios">Responsáveis</label>
+            <select name="usuarios" id="usuarios" multiple>
+                {{#each usuarios}}
+                <option value="{{id}}">{{nome}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <a class="btn btn-ghost" href="/receitaList">Cancelar</a>
+        </div>
+    </form>
+</div>
